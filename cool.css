@@ -1,0 +1,161 @@
+body {
+	background: url("http://us.123rf.com/400wm/400/400/guniita/guniita1106/guniita110600009/9877013-blue-abstract-technology-background.jpg");
+	text-align: center;
+    margin:0;
+    padding: 0;
+}
+
+div {
+    padding: 10px;
+}
+
+#section1 {
+	background: rgba(228, 46, 46, 1);
+}
+
+#section2 {
+	background: rgba(36, 164, 27, 1);
+}
+
+#section3 {
+	background: rgba(9, 78, 182, 1);
+}
+
+ul {
+	font-family: 'Roboto Slab', serif;
+	background: rgba(255,255,255, 0.5);
+	padding: 3;
+    margin: auto;
+}
+
+li {
+	padding: 10px 10px 0px 15px;
+	display: inline-block;
+	border-radius: 20px;
+	text-align: center;
+}
+
+header {
+	text-align: center;
+	background-size: cover;
+	border-radius: 20px;
+}
+
+@media (max-width: 500px) {
+	h1 {
+		font-size: 36px;
+	}
+	li {
+		display: block;
+		padding: 5px;
+	}
+}
+
+
+.profile {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10px;
+		margin-bottom: 5px;
+		width: 180px;
+		height: 180px;
+		line-height: 12px;
+		border-radius: 90px;
+		border: 4px solid;
+		border-color: rgba(255,255,255,0.75);;
+}
+
+.socialmedia {
+		display: inline;
+		max-height: 30px;
+}
+
+.work {
+	display: block;
+	width: 150px;
+	height: 150px;
+	border-radius: 20px;
+}
+
+h1 {
+	font-size: 60px;
+	font-family: 'Pacifico', cursive;
+	color: black;
+    margin-top: -20px;
+}
+
+
+h2 {
+		font-family: 'Roboto Slab', serif;
+		font-size: 40px;
+		padding: 0;
+        color: red;
+        margin-top: -30px;
+	}
+
+h3 {
+	font-family: 'Roboto Slab', serif;
+	font-size: 30px;
+	margin: 0;
+	padding: 0;
+}
+
+h4 {
+	font-family: 'Roboto Slab', serif;
+	font-size: 25px;
+}
+
+a:link {
+		color: #174764;
+		text-decoration: none;
+		font-weight: bold;
+	}
+
+a:hover {
+		color: #5EC4CD; 
+		text-decoration: none;
+	}
+
+a:visited {
+		text-decoration: none;
+		color: #174764;
+	}
+
+p {
+		font-size: 15px;
+		margin: 0 auto;
+		line-height: 28px;
+  		text-align: justify;
+        font-family: 'Roboto Slab', serif;
+        max-width: 860px;
+	}
+
+input {
+		border: 0;
+		padding: 10px;
+		border-radius: 15px;
+		font-family: 'Roboto Slab', serif;
+	}
+input[id=email]:focus {
+		background: rgba(255,255,255,1);
+		font-size: 12.5px;
+} 
+	
+input[id=button] {
+		background: pink;
+		color: black;
+		font-size: 12.5px;
+		font-family: 'Roboto Slab', serif;
+}
+
+input:hover {
+		background: rgba(255,255,255,0.75);
+		color: black;
+		font-style: bold;
+}
+
+span {
+	display: block;
+	margin: 0 auto;
+}
