@@ -22,11 +22,14 @@
         window.location.reload();
     }
 }
+console.log(authinput);
+console.log(authcode);
+
 	fb = new Firebase("https://classmatch.firebaseio.com");
-  var authcode = $("#authcode").val();
+  var authinput = $("#authcode").val();
 
    function auth() {
-    if (authcode == "rahul") {
+    if (authinput == "rahul") {
       console.log("Nice");
     }
     else {
