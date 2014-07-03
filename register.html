@@ -25,9 +25,10 @@
 console.log(authinput);
 
 	fb = new Firebase("https://classmatch.firebaseio.com");
-  var authinput = document.getElementById('authcode').value;
+  
 
    function auth() {
+   	  var authinput = document.getElementById('authcode').value;
     if (authinput == "rahul") {
       console.log("Nice");
     }
