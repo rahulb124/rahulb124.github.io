@@ -36,9 +36,9 @@
         var students = snapshot.val();
         snapshot.forEach(function(childSnapshot) {
         var name = childSnapshot.name();
-        var childData = childSnapshot.val();
         console.log(childSnapshot.val());
         $('#users').html($('#users').html() +" " + childSnapshot.val());
+        console.log(name);
         
         // alert('The following students are in ' + findclass + ' with ' + findteacher + ' during 1st period : ' + childSnapshot.val() );
       })
