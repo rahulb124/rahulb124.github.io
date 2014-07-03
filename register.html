@@ -23,10 +23,9 @@
     }
 }
 console.log(authinput);
-console.log(authcode);
 
 	fb = new Firebase("https://classmatch.firebaseio.com");
-  var authinput = $("#authcode").val();
+  var authinput = document.getElementById('authcode').value;
 
    function auth() {
     if (authinput == "rahul") {
