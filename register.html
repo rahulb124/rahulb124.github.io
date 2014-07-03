@@ -31,6 +31,35 @@
   var authinput = $("#authcode").val();
   
     if (authinput == "rahul") {
+    	fb.child('users').on('value', function(snapshot) {
+        console.log(snapshot.val());
+        var students = snapshot.val();
+        snapshot.forEach(function(childSnapshot) {
+        var name = childSnapshot.name();
+        var childData = childSnapshot.val();
+        console.log(childSnapshot.val());
+        $('#users').html($('#users').html() +" " + childSnapshot.val());
+        
+        // alert('The following students are in ' + findclass + ' with ' + findteacher + ' during 1st period : ' + childSnapshot.val() );
+      })
+
+  
+  });
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
       console.log("Nice");
     }
     else {
@@ -48,6 +77,7 @@
       <input type="text" id="authcode" placeholder="AUTH CODE">
       
       <button onclick="auth()">Authorize</button>
+      <div id="users"></div>
 
 
 
