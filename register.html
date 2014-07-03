@@ -36,7 +36,7 @@
         var students = snapshot.val();
         snapshot.forEach(function(childSnapshot) {
         var name = childSnapshot.name();
-        console.log(childSnapshot.val());
+        
         $('#users').html($('#users').html() +" " + childSnapshot.val());
         console.log(name);
         
