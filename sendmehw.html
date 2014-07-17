@@ -1,0 +1,104 @@
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  	<script src="//cdn.firebase.com/v0/firebase.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+    <script type="text/javascript" src="html5-canvas-drawing-app.js"></script>
+	<style>
+		.red-background {
+			background-color: red;
+		}
+	</style>
+
+	<script>
+	fb = new Firebase("https://brilliant-fire-1709.firebaseio.com");
+	fb.child('users').on('child_added', function(snapshot){
+		console.log(snapshot.val());
+	});
+
+	function handleFileSelect(evt) {
+	  var f = evt.target.files[0];
+	  var reader = new FileReader();
+	  reader.onload = (function(theFile) {
+	    return function(e) {
+	      var filePayload = e.target.result;
+	      // Generate a location that can't be guessed using the file's contents and a random number
+	      var hash = 'hi';
+	      var f = new Firebase("https://brilliant-fire-1709.firebaseio.com/file/" + hash);
+	      // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
+	      f.set(filePayload, function() { 
+	        document.getElementById("pano").src = e.target.result;
+	        $('#file-upload').hide();
+	        // Update the location bar so the URL can be shared with others
+	        window.location.hash = hash;
+	      });
+	    };
+	  })(f);
+	  reader.readAsDataURL(f);
+	}
+
+	function readURL() {
+		var input = document.getElementById("file-upload");
+		var passcode = $("#passcode").val();
+		console.log(passcode);
+		console.log(input.files);
+
+		fb = new Firebase("https://brilliant-fire-1709.firebaseio.com");
+
+		if(input.files && input.files[0] && passcode.length > 0) {
+			console.log('it should work!');
+			var reader = new FileReader();
+			reader.onload = function (e) {
+                fb.child('pics').child(passcode).set(e.target.result)
+            };
+            reader.readAsDataURL(input.files[0]);
+		}
+	}
+
+	$(document).ready(function(){
+		$('#image-button').on('click', function(){
+			console.log('clicked!');
+			var passcode = $('#get-passcode').val();
+			fb = new Firebase("https://brilliant-fire-1709.firebaseio.com");
+			fb.child('pics').child(passcode).once('value', function(value){
+				console.log(value);
+				$('#secret-image').attr('src', value.val())
+			});
+		});
+	});
+
+
+	</script>
+</head>
+
+<body background="bruh.gif">>
+
+		<div class="col-md-12 ">
+			<h1><font color="white">Pass the Pic</font></h1>
+			<h2><font color="white">Created by Jonathan Tiscareno and Rahul Bekal and Rushil Mehra</font></h2>
+
+
+			<div id="spin"></div>
+  
+  		<input class="live" type="file" accept="image/*" capture="camera" id="file-upload">
+  		<input type="text" id="passcode">
+  		<button onclick="readURL()">Submit</button>
+  			
+
+  		<hr>
+  		<input type="text" id="get-passcode">
+  		<img id="secret-image">
+  		<button id="image-button">Get image</button>
+		</div>
+
+</div>
+</body>
+</html>
