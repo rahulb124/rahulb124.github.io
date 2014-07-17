@@ -2,28 +2,21 @@
 <head>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   	<script src="//cdn.firebase.com/v0/firebase.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-    <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
-    <script type="text/javascript" src="html5-canvas-drawing-app.js"></script>
+
 	<style>
-		.red-background {
-			background-color: red;
+		.background {
+			background-color: #4B77BE;
 		}
 	</style>
 
 	<script>
-	fb = new Firebase("https://brilliant-fire-1709.firebaseio.com");
-	fb.child('users').on('child_added', function(snapshot){
-		console.log(snapshot.val());
-	});
-
+	fb = new Firebase("https://sendmehw.firebaseio.com");
 	function handleFileSelect(evt) {
 	  var f = evt.target.files[0];
 	  var reader = new FileReader();
@@ -79,7 +72,7 @@
 	</script>
 </head>
 
-<body background="bruh.gif">>
+<body >
 
 		<div class="col-md-12 ">
 			<h1><font color="white">Pass the Pic</font></h1>
@@ -88,7 +81,7 @@
 
 			<div id="spin"></div>
   
-  		<input class="live" type="file" accept="image/*" capture="camera" id="file-upload">
+  		<input class="live" type="file" accept=".doc,.pdf,image/*" capture="camera" id="file-upload">
   		<input type="text" id="passcode">
   		<button onclick="readURL()">Submit</button>
   			
