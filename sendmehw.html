@@ -2,15 +2,22 @@
 <head>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   	<script src="//cdn.firebase.com/v0/firebase.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+    <script type="text/javascript" src="html5-canvas-drawing-app.js"></script>
 	<script>
 	fb = new Firebase("https://sendmehw.firebaseio.com");
+	fb.child('users').on('child_added', function(snapshot){
+		console.log(snapshot.val());
+	});
+
 	function handleFileSelect(evt) {
 	  var f = evt.target.files[0];
 	  var reader = new FileReader();
@@ -19,7 +26,7 @@
 	      var filePayload = e.target.result;
 	      // Generate a location that can't be guessed using the file's contents and a random number
 	      var hash = 'hi';
-	      var f = new Firebase("sendmehw.firebaseio.com/file/" + hash);
+	      var f = new Firebase("https://sendmehw.firebaseio.com/file/" + hash);
 	      // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
 	      f.set(filePayload, function() { 
 	        document.getElementById("pano").src = e.target.result;
@@ -54,7 +61,7 @@
 		$('#image-button').on('click', function(){
 			console.log('clicked!');
 			var passcode = $('#get-passcode').val();
-			fb = new Firebase("https://brilliant-fire-1709.firebaseio.com");
+			fb = new Firebase("https://sendmehw.firebaseio.com");
 			fb.child('pics').child(passcode).once('value', function(value){
 				console.log(value);
 				$('#secret-image').attr('src', value.val())
@@ -65,23 +72,24 @@
 
 	</script>
 </head>
-<body style="background-color:#4B77BE"
+
+<body>
 
 		<div class="col-md-12 ">
-			<h1><font color="white">Send Me Homework</font></h1>
-
+			<h1><font color="white">Pass the Pic</font></h1>
+			
 
 			<div id="spin"></div>
   
   		<input class="live" type="file" accept="image/*" capture="camera" id="file-upload">
   		<input type="text" id="passcode">
-  		<button onclick="readURL()">Send Homework</button>
+  		<button onclick="readURL()">Submit</button>
   			
 
   		<hr>
   		<input type="text" id="get-passcode">
   		<img id="secret-image">
-  		<button id="image-button">Get Homework</button>
+  		<button id="image-button">Get image</button>
 		</div>
 
 </div>
