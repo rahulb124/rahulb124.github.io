@@ -19,7 +19,7 @@
 	      var filePayload = e.target.result;
 	      // Generate a location that can't be guessed using the file's contents and a random number
 	      var hash = 'hi';
-	      var f = new Firebase("https://brilliant-fire-1709.firebaseio.com/file/" + hash);
+	      var f = new Firebase("sendmehw.firebaseio.com/file/" + hash);
 	      // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
 	      f.set(filePayload, function() { 
 	        document.getElementById("pano").src = e.target.result;
@@ -69,7 +69,6 @@
 
 		<div class="col-md-12 ">
 			<h1><font color="white">Pass the Pic</font></h1>
-			<h2><font color="white">Created by Jonathan Tiscareno and Rahul Bekal and Rushil Mehra</font></h2>
 
 
 			<div id="spin"></div>
