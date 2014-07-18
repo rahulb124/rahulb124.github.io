@@ -117,8 +117,12 @@ input.text {
 
 			<div id="spin"></div>
    <div class="container container-small">
-   		<button class="btn-file-input">Upload Homework</button>
+	<div class="file-input-wrapper">
+  		<button class="btn btn-default">Upload Homework</button>
+  		<input type="file" name="file" />
   		<input class="live" type="file" accept="image/*" capture="camera" id="file-upload">
+	</div>
+  		
   		<input type="text" class="text" id="passcode">
   		<button class="btn btn-default" onclick="readURL()">Submit</button>
   			
