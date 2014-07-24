@@ -39,15 +39,7 @@ html, body {
 	font-family: 'helveticaN';
 	src: url('../fonts/helvetica_n.ttf');
 }
-body,html {
-/*	height:100%;*/	
-	background-color:#4B77BE; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-/*	background-attachment:fixed;
-*/}
+
 .navbar-link-white {
 	color:white;
 }
