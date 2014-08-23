@@ -120,6 +120,13 @@ input.text {
 			fb.child('pics').child(passcode).once('value', function(value){
 				console.log(value);
 				$('#secret-image').attr('src', value.val())
+				if($('#secret-image').width() > $('#secret-image').height()) { 
+ $('#secret-image').css('width',MaxPreviewDimension+'px');
+ $('#secret-image').css('height','auto');
+} else {
+ $('#secret-image').css('height',MaxPreviewDimension+'px');
+ $('#secret-image').css('width','auto');
+}
 			});
 		});
 	});
