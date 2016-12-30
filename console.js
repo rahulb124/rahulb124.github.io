@@ -45,7 +45,7 @@ function initConsole() {
 	function processInput(input) {
 		commands = {
 
-			'help': 'Welcome. You can type: <br>&nbsp;<span class="blue">bio</span>: Short bio about myself.<br>&nbsp;<span class="blue">social</span>: Get in touch <br>&nbsp;<span class="blue">interests</span>: Fun stuff<br>&nbsp;<span class="blue">languages</span>: A list of languages I have programmed in.<br>&nbsp;<span class= "blue">hackathons</span>: list of hackathons I have attended.',
+			'help': 'Welcome. You can type: <br>&nbsp;<span class="blue">bio</span>: Short bio about myself.<br>&nbsp;<span class="blue">social</span>: Get in touch <br>&nbsp;<span class="blue">interests</span>: Fun stuff<br>&nbsp;<span class="blue">languages</span>: A list of languages I have programmed in.<br>&nbsp;<span class= "blue">hackathons</span>: list of hackathons I have attended.<br>&nbsp<span class="blue">clear</span>: clear the page.',
 			'bio': 'UCI Computer Science and Engineering Major',
 			'social': '<span class="blue">&nbsp;Facebook: <a href="http://www.facebook.com/rahul.bekal.3" target="_blank">Rahul Bekal</a></span> <br><span class="green">&nbsp;Github: &nbsp;&nbsp;<a href="http://www.github.com/rahulb124" target="_blank">@rahulb124</a></span> <br>',
 			'interests': 'Programming, Sports, Music',
@@ -57,6 +57,9 @@ function initConsole() {
 		if (input in commands) {
 			if (typeof commands[input] === 'function') commands[input]();
 			else newLine(commands[input]);
+		}
+		else if (input == 'clear') {
+			location.reload();
 		}
 		else if (input.length > 0) {
 			newLine('-pseudobash: ' + input + ': command not found');
