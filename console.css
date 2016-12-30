@@ -1,0 +1,93 @@
+/*
+*Console
+*/
+#console {
+  width: 96%;
+  height: 250px;
+  padding: 10px;
+  color: white;
+  font-weight: 120;
+  font-family: 'Lato';
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.9);
+
+}
+
+#console a{
+  color: orange;
+  text-decoration: underline;
+
+
+}
+
+#bar {
+  background-color: #bcbec0;
+  width: 96%;
+  height: 30px;
+  padding: 10px;
+}
+
+#bar > div {
+  float: left;
+  margin-left: 10px;
+}
+
+#window {
+  color: #fff;
+  font-weight: 800;
+  height: 420px;
+  padding: 25px;
+}
+
+#green {
+  background-color: #39d1b4;
+  border-radius: 50%;
+  margin-top: 7px;
+  height: 15px;
+  width: 15px;
+}
+
+#yellow {
+  background-color: #fff799;
+  border-radius: 50%;
+    margin-top: 7px;
+  height: 15px;
+  width: 15px;
+}
+
+#red {
+  background-color: #f65a5b;
+  border-radius: 50%;
+    margin-top: 7px;
+
+  height: 15px;
+  width: 15px;
+}
+
+#middle{
+    margin-top: 5px;
+  text-align: center;
+
+}
+
+.blue {
+  color: #55acee;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+
+.consoleLine {
+  overflow: hidden;
+  width: 100%;
+  white-space: normal;
+  font-family: 'Arial';
+  word-wrap: break-word;
+
+}
