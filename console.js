@@ -50,7 +50,7 @@ function initConsole() {
 			'social': '<span class="blue">&nbsp;Facebook: <a href="http://www.facebook.com/rahul.bekal.3" target="_blank">Rahul Bekal</a></span> <br><span class="green">&nbsp;Github: &nbsp;&nbsp;<a href="http://www.github.com/rahulb124" target="_blank">@rahulb124</a></span> <br>',
 			'interests': 'Programming, Sports, Music',
 			'languages': 'C++, Python, Javascript, HTML, PHP, Swift',
-			'hackathons':'<span class="light-blue">&nbsp;HS Hacks @ Paypal HQ</span> <br><span class="green">&nbsp;CodeDay SF @ Lookout HQ &nbsp;</span><br><span class="blue">&nbsp;BeyondHacks @ Facebook HQ &nbsp;</span><br><span class="blue">&nbsp;HackUCI @ UCI &nbsp;</span><br><span class="blue">&nbsp;SBHacks @ UCSB &nbsp;</span><br><span class="gold">&nbsp;CalHacks @ UC Berkeley &nbsp;</span><br>',
+			'hackathons':'<span class="light-blue">&nbsp;HS Hacks @ Paypal HQ</span> <br><span class="green">&nbsp;CodeDay SF @ Lookout HQ &nbsp;</span><br><span class="blue">&nbsp;BeyondHacks @ Facebook HQ &nbsp;</span><br><span class="grey">&nbsp;HackUCI @ UCI &nbsp;</span><br><span class="red">&nbsp;SBHacks @ UCSB &nbsp;</span><br><span class="orange">&nbsp;CalHacks @ UC Berkeley &nbsp;</span><br>',
 	
 		}
 
