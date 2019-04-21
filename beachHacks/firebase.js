@@ -1,6 +1,3 @@
-/** firebase.js **/
-
-
 function getCount(userID, itemType)
 {
 	var userId = firebase.auth().currentUser;
@@ -10,17 +7,6 @@ function getCount(userID, itemType)
 	});
 	// This is a returned promise --> To access it you need to resolve it with .then()
 	return count;
-}
-
-function updateCount(userID, itemType)
-{
-	var userId = firebase.auth().currentUser;
-	return firebase.database().ref('/users/' + userID).once('value').then(function(snapshot) {
-  		var trashCount = (snapshot.val() && snapshot.val()[itemType]) || 0;
-			firebase.database().ref('users/' + userID).update({
-				[itemType] : trashCount + 1
-			});
-	});
 }
 
 function updateURL(userID, url)
@@ -33,19 +19,42 @@ function updateURL(userID, url)
 	});
 }
 //
-function drawWithPromise(user, itemType) {
-	// Draws itemType count with user being snapchat user
-	// (i.e. user: "bobaluvr124" and itemType: "recyclable")
+
+function drawWithPromise(user) {
 	user = "CassTao";
-	itemType = "recyclable";
-	updateCount(user, itemType).then(function() {
+	var recycleRef = firebase.database().ref('/users/CassTao/recyclable');
+	recycleRef.on('value', function(snapshot) {
+		getCount(user, "recyclable").then(function(result) {
+			var recycleCount = result;
+			getCount(user, "compost").then(function(result) {
+				var totalCount = result + recycleCount;
+				var dataURL = draw(user, recycleCount, totalCount, "recycle");
+			});
+		});
+	});
+
+	var compostRef = firebase.database().ref('/users/CassTao/compost');
+	compostRef.on('value', function(snapshot) {
+		getCount(user, "compost").then(function(result) {
+			var compostCount = result;
+			getCount(user, "recyclable").then(function(result) {
+				var totalCount = result + compostCount;
+				var dataURL = draw(user, compostCount, totalCount, "compost");
+			});
+		});
+	});
+
+	var trashRef = firebase.database().ref('/users/CassTao/trash');
+	trashRef.on('value', function(snapshot) {
+		itemType = "trash";
+		var ranNum = 0;
 		getCount(user, itemType).then(function(result) {
-			var dataURL = draw(user, result);
+			var dataURL = draw(user, result, ranNum, "trash");
 		});
 	});
 }
 
-function draw(user, count) {
+function draw(user, count, total, itemType) {
 	var ctx = document.getElementById('canvas').getContext('2d');
 	var img = new Image();
 	img.crossOrigin="anonymous";
@@ -53,12 +62,21 @@ function draw(user, count) {
 		ctx.drawImage(img, 0, 0);
 		ctx.font = '35px serif'
 		ctx.fillText(count, 300, 120);
+		// Only draw this total count if not trash
+		if (itemType === "recycle" || itemType === "compost") {
+			ctx.fillText(total, 35, 35);
+		}
 		var dataURL = output();
 		updateURL(user, dataURL);
 	};
-	img.src = 'https://i.ibb.co/CnSVB26/Slice1.png';
+	if (itemType === "recycle") {
+		img.src = 'https://i.ibb.co/10Vv7cw/Compost-FINAL.png';
+	} else if (itemType === "compost") {
+		img.src = 'https://i.ibb.co/5ktDnZh/Compost5.png';
+	} else {
+		img.src = 'https://i.ibb.co/X7p7MdY/trash2.png';
+	}
 }
-
 
 function output(){
 	var myCanvas = document.getElementById("canvas");
