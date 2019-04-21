@@ -1,0 +1,29 @@
+<html>
+
+<head>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBCa7cpu-9fJztGxk9ioS-v8JtXao8Ea0Y",
+        authDomain: "resnapcycle.firebaseapp.com",
+        databaseURL: "https://resnapcycle.firebaseio.com",
+        projectId: "resnapcycle",
+        storageBucket: "resnapcycle.appspot.com",
+        messagingSenderId: "86983019974"
+      };
+
+      firebase.initializeApp(config);
+  </script>
+</head>
+
+ <body onload="drawWithPromise('param1', 'param2');">
+   <canvas id="canvas" width="500" height="300"></canvas>
+   	Enter the count:
+   	<input name = "countInput" type = "text" id="countInput">
+   	<br><br>
+   	<button onclick="myFunction()"> Try it </button>
+   	<button onclick="output()"> Export to png </button>
+    <script type = "text/javascript" src="firebase.js"></script>
+ </body>
+</html>
