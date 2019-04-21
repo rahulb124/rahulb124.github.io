@@ -64,7 +64,7 @@ function draw(user, count, total, itemType) {
 		ctx.fillText(count, 300, 120);
 		// Only draw this total count if not trash
 		if (itemType === "recycle" || itemType === "compost") {
-			ctx.fillText(total, 98, 100);
+			ctx.fillText("xd", 98, 100);
 		}
 		var dataURL = output();
 		updateURL(user, dataURL);
